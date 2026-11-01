@@ -2,12 +2,31 @@
   "name": "fsweb-s15g4-node-testing-project-2",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sendresults": "node validateTask.js && node sendTestResults.js"
-  },
+
+"scripts": {
+  "start": "node index.js",
+  "server": "nodemon index.js",
+  "test": "cross-env NODE_ENV=testing jest --runInBand",
+  "rollback": "knex migrate:rollback",
+  "migrate": "knex migrate:latest",
+  "seed": "knex seed:run",
+  "sendresults": "node validateTask.js && node sendTestResults.js"
+}
+,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Workintech/fsweb-s15g4-node-testing-project-2.git"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "knex": "^3.3.0",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "eslint": "^10.14.0",
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.3.1"
   }
 }
